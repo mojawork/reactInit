@@ -1,0 +1,40 @@
+@import "scss/config";
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-size: $global-font-size;
+  background-color: transparent;
+}
+
+body {
+  overflow-y: scroll;
+  *, ::before, ::after {
+    font-style: $global-font-style;
+    font-family: $global-font-family;
+    font-weight: $global-font-weight;
+    text-decoration: $global-text-decoration;
+    letter-spacing: $global-letter-spacing;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    color: $colorFont;
+  }
+  header, main, footer, div, article, section, figure {
+    display: flex;
+    box-sizing: border-box;
+    font-size: 1.2rem;
+  }
+  button {
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin: 0;
+    padding: 0;
+    &:focus {
+      outline: none;
+    }
+  }
+}

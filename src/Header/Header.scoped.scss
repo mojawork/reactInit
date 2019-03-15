@@ -1,0 +1,8 @@
+@import "../scss/config";
+
+header {
+  display: block;
+  background-color: $colorBackgroundSecond;
+  margin: $margin;
+  padding : $padding;
+}
