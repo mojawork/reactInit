@@ -4,5 +4,12 @@ header {
   display: block;
   background-color: $colorBackgroundSecond;
   margin: $margin;
-  padding : $padding;
+  padding: $padding;
+
+  ul {
+    flex-flow: row;
+    li {
+      margin-right: $margin * 2;
+    }
+  }
 }
