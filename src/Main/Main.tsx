@@ -17,9 +17,17 @@ class Main extends Component<any, any> {
     constructor(state: any) {
         super(state);
         this.state = {
+            headline: 'Main',
             behanceData: []
         };
     }
+
+    handleChange = (event:any) => {
+            const { name, value } = event.target;
+        this.setState({
+            [name]: value,
+        });
+    };
 
     get behanceTeaser(): any {
         let projects = this.state.behanceData;
@@ -53,9 +61,21 @@ class Main extends Component<any, any> {
     render() {
         return (
             <main>
-                <h1>Main</h1>
+                <h1>{this.state.headline}</h1>
                 <hr/>
-                <section className="gid-3">
+
+                <form>
+                    <label>Change headline:</label>
+                    <input
+                        type="text"
+                        name="headline"
+                        placeholder='input'
+                        onChange={this.handleChange} />
+                </form>
+
+                <hr/>
+
+                <section className="gid">
                     {this.behanceTeaser}
                 </section>
             </main>

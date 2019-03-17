@@ -1,37 +1,45 @@
 @import "../scss/config";
 
-
-
 main {
   display: grid;
   background-color: $colorBackgroundSecond;
   margin: $margin;
   padding: $padding;
+
+  label {
+    margin-right: $margin;
+  }
+
+  input[type="text"] {
+    padding: $padding *0.4;
+    border: 1px solid $colorFont;
+  }
+
   hr {
     margin-bottom: $margin * 4;
   }
-  .gid-3 {
+
+  .gid {
     grid-gap: $margin;
     display: grid;
     grid-template-columns: 100%;
   }
 
   @include breakpoint('bp1') {
-
-    .gid-3 {
+    .gid {
       grid-template-columns: 100%;
     }
   }
 
   @include breakpoint('bp2') {
-    .gid-3 {
+    .gid {
       grid-template-columns: minmax(200px, 50%) minmax(200px, 50%);
     }
   }
 
   @include breakpoint('bp3') {
-    .gid-3 {
-      grid-template-columns: minmax(200px, 25%) minmax(200px, 25%) minmax(200px, 25%)  minmax(200px, 25%);
+    .gid {
+      grid-template-columns: minmax(200px, 25%) minmax(200px, 25%) minmax(200px, 25%) minmax(200px, 25%);
     }
   }
 }
