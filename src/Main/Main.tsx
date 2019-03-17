@@ -1,27 +1,39 @@
 import React, {Component} from 'react';
 import {getService} from '../service/service'
+import MainTeaser from './Teaser/Teaser'
 import './Main.scoped.scss';
 
-const apiURL = 'https://mojawork.de/proxy/service.php?name=behanceprojects';
 
+// --- types ---
+import {iTeaserItem} from './Teaser/iTeaser'
+// --- types ---
+
+// --- const ---
+const apiURL = 'https://mojawork.de/proxy/service.php?name=behanceprojects';
+// --- const ---
 
 class Main extends Component<any, any> {
 
     constructor(state: any) {
         super(state);
         this.state = {
-            projects: []
+            behanceData: []
         };
     }
 
-    get projectData(): any {
-        let projects = this.state.projects;
+    get behanceTeaser(): any {
+        let projects = this.state.behanceData;
         if (projects.length > 0) {
-            return projects.map((data: any, i: number) => {
+            return projects.map((data: any, count: number) => {
+                const publishedOnOptions = {weekday: 'short', year: 'numeric', month: 'short', day: 'numeric'};
+                let probData:iTeaserItem = {
+                    name : data.name,
+                    target : false,
+                    url: data.covers[Object.keys(data.covers)[Object.keys(data.covers).length - 1]],
+                    published: 'Created: ' + new Date(data.published_on * 1000).toLocaleDateString("de-DE", publishedOnOptions)
+                };
                 return (
-                    <li key={i}>
-                        {data.name}
-                    </li>
+                    <MainTeaser data={probData} key={'behalnce-teaser-'+count} />
                 );
             });
         }
@@ -32,7 +44,7 @@ class Main extends Component<any, any> {
     componentDidMount() {
         getService(apiURL)
             .then((result) => {
-                    this.setState({projects: result.projects})
+                    this.setState({behanceData: result.projects})
                 }
             )
     }
@@ -43,9 +55,9 @@ class Main extends Component<any, any> {
             <main>
                 <h1>Main</h1>
                 <hr/>
-                <ul>
-                    {this.projectData}
-                </ul>
+                <section className="gid-3">
+                    {this.behanceTeaser}
+                </section>
             </main>
         );
     }

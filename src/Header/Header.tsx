@@ -4,11 +4,9 @@ import './Header.scoped.scss';
 
 class Header extends Component<iHeaderData> {
 
-    /*
     constructor(props: iHeaderData) {
         super(props);
     }
-    */
 
     get listLinks() {
         return this.props.links.map((link: iHeaderLink, i: number) => {
@@ -34,6 +32,5 @@ class Header extends Component<iHeaderData> {
         );
     }
 }
-
 
 export default Header;

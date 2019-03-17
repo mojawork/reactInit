@@ -21,7 +21,7 @@ body {
     border: 0;
     color: $colorFont;
   }
-  header, main, footer, div, article, section, figure {
+  header, main, footer, div, article, section, figure, figcaption {
     display: flex;
     box-sizing: border-box;
     font-size: 1.2rem;
@@ -54,3 +54,12 @@ body {
     }
   }
 }
+
+@include breakpoint('bp3') {
+  #root{
+    display: flex;
+    max-width: $bp-2-max;
+    margin:auto;
+  }
+}
+

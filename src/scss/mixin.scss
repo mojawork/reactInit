@@ -1,0 +1,22 @@
+@mixin breakpoint(
+  $breakpoint : null
+) {
+  // -- bp1 ---
+  @if $breakpoint == 'bp1' {
+    @media (max-width: $bp-1-max) {
+      @content;
+    }
+  }
+  // -- bp2 ---
+  @if $breakpoint == 'bp2' {
+    @media screen and (min-width: #{$bp-2-min}) and (max-width: #{$bp-2-max}) {
+      @content;
+    }
+  }
+  // -- bp3 ---
+  @if $breakpoint == 'bp3' {
+    @media (min-width: $bp-3-min) {
+      @content;
+    }
+  }
+}
