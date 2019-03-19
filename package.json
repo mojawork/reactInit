@@ -1,7 +1,9 @@
 {
-  "name": "reacttest2",
+  "name": "reactinit",
   "version": "0.1.0",
   "private": true,
+  "author": "Markus Lungwitz",
+  "license": "ISC",
   "dependencies": {
     "@types/axios": "^0.14.0",
     "@types/lodash-es": "^4.17.1",
