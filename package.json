@@ -16,6 +16,7 @@
     "react-dom": "^16.8.4",
     "typescript": "3.3.3333"
   },
+  "homepage": "https://projects.mojawork.de/github/react_prototype",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
