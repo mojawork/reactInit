@@ -22,23 +22,31 @@ class Main extends Component<any, any> {
         };
     }
 
-    handleChange = (event:any) => {
+    private handleChange = (event:any) => {
             const { name, value } = event.target;
         this.setState({
             [name]: value,
         });
     };
 
+
+    private ClickMe = (massage: string) => (event: any) => {
+        alert(massage);
+    };
+
+
     get behanceTeaser(): any {
         let projects = this.state.behanceData;
         if (projects.length > 0) {
+
             return projects.map((data: any, count: number) => {
                 const publishedOnOptions = {weekday: 'short', year: 'numeric', month: 'short', day: 'numeric'};
                 let probData:iTeaserItem = {
                     name : data.name,
                     target : false,
-                    url: data.covers[Object.keys(data.covers)[Object.keys(data.covers).length - 1]],
-                    published: 'Created: ' + new Date(data.published_on * 1000).toLocaleDateString("de-DE", publishedOnOptions)
+                    imageSrc: data.covers[Object.keys(data.covers)[Object.keys(data.covers).length - 1]],
+                    published: 'Created: ' + new Date(data.published_on * 1000).toLocaleDateString("de-DE", publishedOnOptions),
+                    url : data.url
                 };
                 return (
                     <MainTeaser data={probData} key={'behalnce-teaser-'+count} />
@@ -71,6 +79,7 @@ class Main extends Component<any, any> {
                         name="headline"
                         placeholder='input'
                         onChange={this.handleChange} />
+                    <button onClick={this.ClickMe('reset')}>reset</button>
                 </form>
 
                 <hr/>
